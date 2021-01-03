@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f2f9312-24a9-45bc-a975-fd02198a90d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Head.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/images/process-step-1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/images/process-step-3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/test.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/template.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +19,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/routes" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -34,6 +36,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/routes" />
       <recent name="$PROJECT_DIR$/static/assets/images" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/static" />
@@ -49,7 +52,8 @@
       <option name="presentableId" value="Default" />
       <updated>1609421062019</updated>
       <workItem from="1609421064928" duration="4125000" />
-      <workItem from="1609586576587" duration="4921000" />
+      <workItem from="1609586576587" duration="5175000" />
+      <workItem from="1609672321824" duration="2814000" />
     </task>
     <servers />
   </component>
@@ -66,5 +70,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
