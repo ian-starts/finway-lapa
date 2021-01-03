@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f2f9312-24a9-45bc-a975-fd02198a90d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Head.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/images/process-step-1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/images/process-step-3.svg" afterDir="false" />
-    </list>
+    <list default="true" id="5f2f9312-24a9-45bc-a975-fd02198a90d8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,5 +62,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
