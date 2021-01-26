@@ -9,7 +9,7 @@
     // the (optional) preload function takes a
     // `{ path, params, query }` object and turns it into
     // the data we need to render the page
-    export async function preload(page) {
+    export async function preload(page, session) {
         // the `slug` parameter is available because this file
         // is called [slug].svelte
         const {lang} = page.params;
@@ -423,77 +423,50 @@
         <div class="grid row-gap-10 mb-8 lg:grid-cols-6">
             <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
                 <div><p class="font-medium tracking-wide text-gray-900">
-                    Category
+                    Social
                 </p>
                     <ul class="mt-2 space-y-2">
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">News</a>
+                        <li><a href="https://twitter.com/ian-starts" target="_blank" class="text-gray-900 transition-colors duration-300 hover:gray-900">Twitter</a>
                         </li>
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">World</a>
+                        <li><a href="https://github.com/ian-starts" target="_blank" class="text-gray-900 transition-colors duration-300 hover:gray-900">Github</a>
                         </li>
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Games</a>
-                        </li>
-                        <li><a href="/"
-                               class="text-gray-900 transition-colors duration-300 hover:gray-900">References</a></li>
-                    </ul>
-                </div>
-                <div><p class="font-medium tracking-wide text-gray-900">
-                    Apples
-                </p>
-                    <ul class="mt-2 space-y-2">
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Web</a></li>
-                        <li><a href="/"
-                               class="text-gray-900 transition-colors duration-300 hover:gray-900">eCommerce</a></li>
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Business</a>
-                        </li>
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Entertainment</a>
-                        </li>
-                        <li><a href="/"
-                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Portfolio</a></li>
-                    </ul>
-                </div>
-                <div><p class="font-medium tracking-wide text-gray-900">
-                    Cherry
-                </p>
-                    <ul class="mt-2 space-y-2">
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Media</a>
-                        </li>
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Brochure</a>
-                        </li>
-                        <li><a href="/"
-                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Nonprofit</a></li>
-                        <li><a href="/"
-                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Educational</a></li>
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Projects</a>
+                        <li><a href="https://linkedin.com/company/finwaytech" target="_blank" class="text-gray-900 transition-colors duration-300 hover:gray-900">LinkedIn</a>
                         </li>
                     </ul>
                 </div>
                 <div><p class="font-medium tracking-wide text-gray-900">
-                    Business
+                    Partners
+                </p>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="https://asperion.nl" target="_blank" class="text-gray-900 transition-colors duration-300 hover:gray-900">Asperion</a>
+                        </li>
+                        <li><a href="https://www.snelstart.nl" target="_blank" class="text-gray-900 transition-colors duration-300 hover:gray-900">SnelStart</a>
+                        </li>
+                    </ul>
+                </div>
+                <div><p class="font-medium tracking-wide text-gray-900">
+                    Blog
                 </p>
                     <ul class="mt-2 space-y-2">
                         <li><a href="/"
-                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Infopreneur</a></li>
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Personal</a>
-                        </li>
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Wiki</a>
-                        </li>
-                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Forum</a>
-                        </li>
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Automate your work</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="md:max-w-md lg:col-span-2"><span class="text-base font-medium tracking-wide text-gray-900">Subscribe for updates</span>
-                <form class="flex flex-col mt-4 md:flex-row"><input placeholder="Email" required="required" type="text"
-                                                                    class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-900 border-opacity-10 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline">
+            <div class="md:max-w-md lg:col-span-2">
+                <span class="text-base font-medium tracking-wide text-gray-900">{content.footer.title}</span>
+                <form class="flex flex-col mt-4 md:flex-row">
+                    <input placeholder="Email" required="required" type="text"
+                           class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-900 border-opacity-10 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline">
                     <button type="submit"
                             class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-custom-accent hover:bg-custom-accent focus:shadow-outline focus:outline-none">
-                        Subscribe
+                        {content.footer.cta}
                     </button>
                 </form>
                 <p class="mt-4 text-sm text-gray-900">
-                    Auto sync all orders and invoices from any e-commerce and accounting platform in one click. Let
-                    software do the work.
-                </p></div>
+                    {content.footer.subTitle}
+                </p>
+            </div>
         </div>
         <div class="flex flex-col justify-between pt-5 pb-10 border-t border-gray-900 border-opacity-10 sm:flex-row"><p
                 class="text-sm text-gray-900">

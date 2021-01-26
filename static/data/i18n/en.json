@@ -112,5 +112,10 @@
         "cta": "Buy Business"
       }
     ]
+  },
+  "footer": {
+    "title": "Subscribe for updates",
+    "cta": "Subscribe",
+    "subTitle": "Auto sync all orders and invoices from any e-commerce and accounting platform in one click. Let software do the work."
   }
 }

@@ -1,1 +1,121 @@
-{}
+{
+  "title": "Finway - Sync alle e-commerce en boekhoudsoftware",
+  "nav": {
+    "workings": "Hoe het werkt",
+    "pricing": "Prijs",
+    "integrations": "Integraties",
+    "login": "Login",
+    "try": "Probeer gratis"
+  },
+  "hero": {
+    "title": "De beste manier om je e-commerce orders en facturen te beheren.",
+    "subTitle": "Laat software het zware werk doen. In 1 klik zijn al je orders en facturen gesynchroniseerd. Laat software voor je werken.",
+    "try": "Probeer 30 gratis!"
+  },
+  "features": {
+    "title": "Koppel automatisch je orders en facturen.",
+    "subTitle": "Voorkom fouten, bespaar tijd en geld met onze plug and play koppelingen.",
+    "feat": [
+      {
+        "title": "Koppel Orders & Facturen.",
+        "subTitle": "Finway biedt een simpele manier om je e-commerce shop en boekhouding volledig aan elkaar te koppelen."
+      },
+      {
+        "title": "Voorkom Fouten & Bespaar Tijd.",
+        "subTitle": "Besteed je tijd aan producten verkopen in plaats van handmatig data invoeren op meerdere plafroms."
+      }
+    ],
+    "learn": "Bekijk meer"
+  },
+  "centerCard": {
+    "title": "Koppel automatisch je e-commerce shop met je boekhoudsysteem.",
+    "subTitle": "We zijn een volledig geautomatiseerd order en facturen tracking systeem, die je alle orders automatisch synchroniseert van je e-commerce platform met je favoriete ERP- of boekhoudpakket.",
+    "start": "Aan de slag!"
+  },
+  "compatibility": {
+    "title": "Omdersteuning.",
+    "subTitle": "Dit is wat we nu ondersteunen. Direct integreerbaar. Gebruik je een ander softwarepakket? Laat het ons weten! We voegen hem gelijk toe."
+  },
+  "process": {
+    "title": "Boekhouden in één klik.",
+    "subTitle": "Synchroniseer automatisch alle orders en facturen van elk e-commerce- en boekhoudplatform met één klik. Laat software het werk doen. ",
+    "steps": [
+      {
+        "title": "Verbind je accounts.",
+        "subTitle": "Kies uit een breed scala aan ondersteunde platforms, of maak verbinding via onze API om binnen enkele minuten aan de slag te kunnen."
+      },
+      {
+        "title": "Stel het in en vergeet het.",
+        "subTitle": "Finway synchroniseert automatisch elke order en factuur op al uw platformen, zodat u zich kunt concentreren op de balangrijke dingen: de groei van uw bedrijf. Stop met eindeloos digitaal papierwerk."
+      },
+      {
+        "title": "Groei!",
+        "subTitle": "Besteed minder tijd aan papierwerk - en meer tijd aan het laten groeien van de verkoop, het creëren van nieuwe producten, het innoveren van de klantenservice of whatever jouw business nodig heeft!"
+      }
+    ]
+  },
+  "pricing": {
+    "header": "Onze prijzen",
+    "title": "Stop met tijdrovend werk.",
+    "subTitle": "Finway automatiseert vervelende boekhoudkundige en e-commerce-workflows, zodat u zich kunt concentreren op het belangrijkste: uw bedrijf. Probeer het 30 dagen gratis.",
+    "accentText": "Most Popular",
+    "cards": [
+      {
+        "title": "Start",
+        "cost":"$10",
+        "features": [
+          "Automatically sync webshop order with your accounting software as invoices",
+          "Full VAT support",
+          "Discounts included in invoices",
+          "Shipping Fee's based on webshop order data",
+          "Sync customer data",
+          "API Dashboard for status monitoring",
+          "Free updates"
+        ],
+        "cta": "Buy Start"
+      },
+      {
+        "title": "Pro",
+        "cost":"$40",
+        "features": [
+          "Automatically sync webshop order with your accounting software as invoices",
+          "Full VAT support",
+          "Discounts included in invoices",
+          "Shipping Fee's based on webshop order data",
+          "Sync customer data",
+          "API Dashboard for status monitoring",
+          "Sync products",
+          "Realtime insight into supplier stock (intake required)",
+          "Free updates"
+        ],
+        "cta": "Buy Pro"
+      },
+      {
+        "title": "Business",
+        "cost":"$90",
+        "features": [
+          "Automatically sync webshop order with your accounting software as invoices",
+          "Full VAT support",
+          "Discounts included in invoices",
+          "Shipping Fee's based on webshop order data",
+          "Sync customer data",
+          "API Dashboard for status monitoring",
+          "Sync products",
+          "Realtime insight into supplier stock (intake required)",
+          "Purchase orders at your supplier directly from Finway",
+          "Dropship your orders to your customers",
+          "Smart email parser to read supplier emails and find Track & Trace links or delivered items",
+          "Fully integrated B2B backorder support",
+          "Partial invoices for backordered items",
+          "Free updates"
+        ],
+        "cta": "Buy Business"
+      }
+    ]
+  },
+  "footer": {
+    "title": "Subscribe for updates",
+    "cta": "Subscribe",
+    "subTitle": "Auto sync all orders and invoices from any e-commerce and accounting platform in one click. Let software do the work."
+  }
+}
