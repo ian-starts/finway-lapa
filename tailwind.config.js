@@ -49,7 +49,10 @@ module.exports = {
         'custom-red-700': 'rgba(248,43,96,0.7)',
         'custom-red-800': 'rgba(248,43,96,0.8)',
         'custom-main-blue': '#1F3C88',
-        'custom-accent': '#FF8540'
+        'custom-accent': '#FF8540',
+        'custom-accent-100': '#FFE3D3',
+        'custom-accent-300': '#FDAB7D'
+
       }),
       textColor: theme => ({
         'custom-white': '#fdfdfd',
@@ -57,7 +60,9 @@ module.exports = {
         'custom-pink': '#edb5f5',
         'custom-orange': '#FCB400',
         'custom-main-blue': '#1F3C88',
-        'custom-accent': '#FF8540'
+        'custom-accent': '#FF8540',
+        'custom-accent-100': '#FFE3D3',
+        'custom-accent-300': '#FDAB7D'
       }),
       minWidth: {
         '0': '0',

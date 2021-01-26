@@ -8,7 +8,7 @@
 
 <style lang="postcss">
     .card {
-        @apply rounded-xl flex flex-col items-center justify-center mx-3;
+        @apply rounded-xl flex flex-col items-center justify-center mx-3 my-3;
         background: #1F3C8842;
         opacity: 0.7;
         height: 10rem;
