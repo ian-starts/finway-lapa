@@ -1,658 +1,412 @@
 <script>
-    import CompatibilityCard from '../components/CompatibilityCard.svelte'
-    import FeatureCard from '../components/FeatureCard.svelte'
     import Head from "../components/Head.svelte";
 </script>
-
-<style lang="postcss">
-    .section {
-        @apply flex flex-col px-10;
-
-        &--full {
-            min-height: 100vh;
-        }
-
-        &--hero {
-            @apply bg-custom-main-blue;
-        }
-
-        &--sub-hero {
-            @apply flex flex-col py-20 px-0 text-custom-main-blue;
-            border-bottom: 2px solid rgba(31, 60, 137, .3);
-            background: white;
-            font-family: 'Rubik', sans-serif;
-        }
-
-        &--features {
-            @apply flex flex-col py-20 text-custom-main-blue;
-            font-family: 'Rubik', sans-serif;
-            background: white;
-        }
-
-        &--cta {
-            @apply flex flex-row py-20 bg-custom-accent;
-            color: white;
-            font-family: 'Rubik', sans-serif;
-        }
-
-        &--compatibility {
-            @apply flex flex-col pt-20 pb-32 px-0 text-custom-main-blue;
-            background: white;
-            font-family: 'Rubik', sans-serif;
-            border-bottom: 2px solid rgba(31, 60, 137, .3);
-        }
-
-        &--process {
-            @apply flex flex-col pt-20 pb-32 bg-white text-custom-main-blue;
-            font-family: 'Rubik', sans-serif;
-        }
-
-        &--pricing {
-            @apply flex flex-col py-20 bg-white text-custom-main-blue;
-            font-family: 'Rubik', sans-serif;
-            border-bottom: 2px solid rgba(31, 60, 137, .3);
-        }
-    }
-
-    .logo {
-        &--name {
-            font-family: Edmundsbury-Sans-Regular;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 2.5rem;
-            line-height: 4rem;
-            letter-spacing: 0.28em;
-            @apply text-custom-main-blue;
-        }
-
-        &--image {
-            @apply pt-3 mx-3 h-auto w-12
-        }
-    }
-
-    .pricing {
-        &--title {
-            @apply font-bold text-6xl mb-10;
-            letter-spacing: 0.12em;
-        }
-
-        &--cards {
-            @apply flex flex-wrap flex-row justify-between mt-10;
-        }
-    }
-
-    .pricing-card {
-        @apply rounded-lg flex flex-col justify-center items-center mb-10 border shadow-lg;
-        height: min-content;
-        min-width: 15rem;
-
-        &--title {
-            @apply font-bold py-6 px-12 text-xl border-b-8 text-custom-main-blue w-full text-center rounded-t-lg;
-            background: #F5F9FA;
-            letter-spacing: 0.12em;
-        }
-
-        &--subtitle {
-            @apply font-bold text-2xl border-b-4 pt-5;
-            letter-spacing: 0.12em;
-            border-bottom-color: #EE9180;
-            line-height: 0.5;
-            display: inline-block;
-
-            span {
-                @apply text-sm;
-                letter-spacing: 0.05em;
-            }
-        }
-
-        &--form {
-            @apply flex flex-col flex-1 w-full px-10;
-        }
-
-        &--button {
-            @apply text-white p-3 bg-custom-accent;
-        }
-
-        &--content {
-            @apply flex flex-1 w-full flex-col justify-start px-12 my-10 text-lg;
-
-            li {
-                @apply my-2
-            }
-
-        }
-    }
-
-    .process {
-        &--title {
-            @apply font-bold text-6xl;
-            letter-spacing: 0.12em;
-        }
-
-        &--subtitle {
-            @apply text-lg mt-5 font-bold pl-2;
-            letter-spacing: 0.12em;
-        }
-
-        &--list {
-            @apply mt-12;
-            border-radius: 10px;
-            list-style-type: none;
-            text-align: start;
-
-            list-style-position: inside;
-        }
-    }
-
-    li:last-of-type:before {
-        @apply bg-custom-main-blue z-0;
-        content: '';
-        position: absolute;
-        bottom: 50%;
-        top: 0;
-        left: 2.25rem;
-        width: 0.5rem;
-    }
-
-    li:first-of-type:before {
-        @apply bg-custom-main-blue z-0;
-        content: '';
-        position: absolute;
-        bottom: 0;
-        top: 50%;
-        left: 2.25rem;
-        width: 0.5rem;
-    }
-
-    li:before {
-        @apply bg-custom-main-blue z-0;
-        content: '';
-        position: absolute;
-        bottom: 0;
-        top: 0;
-        left: 2.25rem;
-        width: 0.5rem;
-    }
-
-    .list-item {
-        @apply relative py-10 z-10;
-
-        &--content {
-            @apply flex flex-row items-center relative;
-        }
-
-        &--counter {
-            .counter--text{
-                @apply flex self-center;
-            }
-            @apply font-bold text-5xl h-20 w-20 text-center text-white bg-custom-main-blue rounded-full flex justify-center;
-
-            &__top-padding {
-                @apply mt-10;
-            }
-        }
-
-        &--image-container {
-            @apply flex flex-1 justify-end;
-        }
-
-        &--image {
-            max-width: 31rem;
-        }
-
-        &--text {
-            @apply font-normal text-xl ml-5;
-            letter-spacing: 0.12em;
-        }
-    }
-
-    .compatibility {
-        &--title {
-            @apply font-bold text-6xl;
-            letter-spacing: 0.12em;
-        }
-
-        &--subtitle {
-            @apply text-lg mt-5 font-bold pl-2;
-            letter-spacing: 0.12em;
-        }
-
-        &--cards {
-            @apply flex flex-row flex-grow justify-center mt-16;
-        }
-    }
-
-    .cta {
-        &--content {
-            @apply flex flex-col pr-16
-        }
-
-        &--title {
-            @apply font-bold text-xl;
-            letter-spacing: 0.12em;
-        }
-
-        &--subtitle {
-            @apply text-lg mt-5;
-        }
-
-        &--form {
-            @apply flex flex-col justify-end flex-1;
-        }
-
-        &--input {
-            @apply px-2 py-1
-        }
-
-        &--button {
-            @apply px-2 py-3 font-bold mt-6 text-white uppercase bg-custom-main-blue text-sm self-end;
-            min-width: 12rem;
-            max-width: 12rem;
-            letter-spacing: 0.085em;
-        }
-    }
-
-    .features {
-        &--title {
-            @apply font-bold text-6xl mb-10;
-        }
-
-        &--cards {
-            @apply flex-row flex-wrap flex justify-between;
-        }
-    }
-
-    .sub-hero {
-        &--title {
-            @apply font-bold text-6xl leading-tight;
-            letter-spacing: 0.12em;
-        }
-
-        &--sub-title {
-            @apply font-bold text-lg leading-tight mt-4;
-            letter-spacing: 0.12em;
-        }
-
-        &--list {
-            @apply list-disc my-6 text-sm;
-            letter-spacing: 0.12em;
-            line-height: 142.5%;
-
-            li {
-                @apply my-6
-            }
-        }
-
-        &--features {
-            @apply ml-10 my-8 flex flex-row;
-        }
-
-        &--image {
-            @apply mr-6 w-auto h-56 justify-end flex self-end flex-1;
-        }
-    }
-
-    .hero {
-        &--content {
-            @apply flex flex-1 flex-row;
-        }
-
-        &--image {
-            @apply mr-6 mt-8 w-auto h-48 flex justify-end flex-1;
-        }
-
-        &--logo {
-            @apply bg-white px-6 pl-10 py-5 pb-8 flex flex-row justify-center items-center;
-            width: min-content;
-        }
-
-        &--text {
-            span {
-                @apply text-custom-accent;
-            }
-
-            @apply mt-24 text-white text-5xl;
-            font-family: 'Maven Pro', sans-serif;
-            line-height: 3.5rem;
-            letter-spacing: 0.07em;
-        }
-
-        &--subtext {
-            @apply text-white text-xl mt-5 font-normal;
-            font-family: 'Rubik', sans-serif;
-            line-height: 1.5rem;
-            letter-spacing: 0.085em;
-            padding-right: 20rem;
-        }
-
-        &--input {
-            @apply px-2 py-1
-
-        }
-
-        &--button {
-            @apply px-2 py-3 font-bold mt-6 text-white bg-custom-accent;
-            letter-spacing: 0.085em;
-        }
-
-        &--form {
-            @apply flex flex-col mt-24;
-            font-family: 'Rubik', sans-serif;
-            width: 14rem;
-        }
-
-        &--trial {
-            @apply text-white font-normal leading-tight text-sm mt-6 mb-10;
-            font-family: 'Rubik', sans-serif;
-        }
-    }
-
-    @screen sm {
-        .section {
-            @apply px-56;
-
-            &--sub-hero {
-                @apply mx-56 px-0;
-            }
-
-            &--features {
-
-            }
-
-            &--compatibility {
-                @apply mx-56 px-0;
-            }
-
-            &--cta {
-
-            }
-        }
-    }
-
-</style>
-
 <Head>
     <title>Finway - Sync any e-commerce and accounting software</title>
 </Head>
-
-<section id="hero" class="section section--full section--hero">
-    <div class="hero--logo">
-        <span class="logo--name">FINWAY</span>
-        <div class="logo--image">
-            <svg width="100%" viewBox="0 0 58 59" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <circle cx="21.5556" cy="37.4444" r="19.5556" stroke="#1F3C88" stroke-width="3.55556"/>
-                <circle cx="35.7777" cy="22.037" r="19.5556" stroke="#1F3C88" stroke-width="3.55556"/>
-            </svg>
-        </div>
-    </div>
-    <h1 class="hero--text">
-        <span>Auto sync</span> any e-commerce and accounting platform <span>in one click.</span>
-    </h1>
-    <h2 class="hero--subtext">
-        Stop copy-pasting data between platforms. That’s work for software.
-    </h2>
-    <div class="hero--content">
-        <div>
-            <form class="hero--form" on:submit={(e) => e.preventDefault()}>
-                <input class="hero--input" placeholder="email"/>
-                <button type="submit" class="hero--button">SIGN UP NOW</button>
-            </form>
-            <div class="hero--trial">
-                <p>
-                    Sign up for a free 30 day trial.
-                </p>
-                <p>
-                    No strings attached.
-                </p>
-            </div>
-        </div>
-        <div class="hero--image">
-            <svg height="100%" viewBox="0 0 214 214" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                        d="M84.9982 97.76H96.7854L100.39 103.829C100.761 104.453 101.576 104.659 102.2 104.288C102.504 104.107 102.72 103.819 102.803 103.478C102.89 103.138 102.839 102.782 102.658 102.478L98.6727 95.7647H98.6779C98.4355 95.3676 98.0076 95.1201 97.5383 95.1201H84.9983C84.2713 95.1201 83.6783 95.7131 83.6783 96.4401C83.6783 97.1672 84.2713 97.7601 84.9983 97.7601L84.9982 97.76Z"
-                        fill="#FF8540"/>
-                <path
-                        d="M118.085 88.7114C117.57 88.1958 116.734 88.1958 116.219 88.7114C115.703 89.227 115.703 90.0623 116.219 90.578L120.761 95.1207H110.959C110.495 95.1207 110.062 95.3682 109.825 95.7652L97.6666 116.241H84.9976C84.2706 116.241 83.6776 116.834 83.6776 117.561C83.6776 118.288 84.2706 118.881 84.9976 118.881H98.4194C98.8834 118.881 99.3166 118.634 99.5537 118.237L111.712 97.7607H120.761L116.219 102.303C115.703 102.819 115.703 103.654 116.219 104.17C116.734 104.686 117.57 104.686 118.085 104.17L124.881 97.374C125.129 97.1265 125.268 96.7914 125.268 96.4408C125.268 96.0901 125.129 95.755 124.881 95.5075L118.085 88.7114Z"
-                        fill="#F2F2F2"/>
-                <path
-                        d="M118.085 109.831C117.57 109.316 116.734 109.316 116.219 109.831C115.703 110.347 115.703 111.182 116.219 111.698L120.761 116.241H110.83L107.896 111.301C107.525 110.677 106.716 110.471 106.092 110.842C105.463 111.213 105.256 112.023 105.628 112.652L108.943 118.236C109.18 118.633 109.613 118.881 110.077 118.881H120.756L116.218 123.423C115.703 123.939 115.703 124.774 116.218 125.29C116.734 125.806 117.569 125.806 118.085 125.29L124.881 118.494C125.128 118.247 125.268 117.911 125.268 117.561C125.268 117.21 125.128 116.875 124.881 116.628L118.085 109.831Z"
-                        fill="#FF8540"/>
-                <circle cx="106.5" cy="106.5" r="52" stroke="#F2F2F2" stroke-width="3"/>
-                <rect x="105" width="4" height="27" rx="2" fill="white"/>
-                <rect x="105" y="187" width="4" height="27" rx="2" fill="white"/>
-                <rect x="214" y="105" width="4" height="27" rx="2" transform="rotate(90 214 105)"
-                      fill="white"/>
-                <rect x="27" y="105" width="4" height="27" rx="2" transform="rotate(90 27 105)"
-                      fill="white"/>
-                <rect x="214" y="105" width="4" height="27" rx="2" transform="rotate(90 214 105)"
-                      fill="white"/>
-                <rect x="27" y="105" width="4" height="27" rx="2" transform="rotate(90 27 105)"
-                      fill="white"/>
-                <rect x="29.9254" y="32.7538" width="4" height="27" rx="2"
-                      transform="rotate(-45 29.9254 32.7538)" fill="white"/>
-                <rect x="162.154" y="164.983" width="4" height="27" rx="2"
-                      transform="rotate(-45 162.154 164.983)" fill="white"/>
-                <rect x="181.246" y="29.9254" width="4" height="27" rx="2"
-                      transform="rotate(45 181.246 29.9254)" fill="white"/>
-                <rect x="49.0172" y="162.154" width="4" height="27" rx="2"
-                      transform="rotate(45 49.0172 162.154)" fill="white"/>
-            </svg>
-        </div>
-    </div>
-</section>
-<section id="subhero" class="section section--sub-hero">
-    <h1 class="sub-hero--title">
-        Sync and forget.
-    </h1>
-    <h2 class="sub-hero--sub-title">
-        We connect your e-commerce and accountancy software.
-    </h2>
-    <div class="sub-hero--features">
-        <ul class="sub-hero--list">
-            <li>Never mind numbingly re-enter data again.</li>
-            <li>Remove human error.</li>
-            <li>One-click set-up.</li>
-            <li>Freedom to choose any webshop- and accounting software you want.</li>
+<div class="px-4 py-5 mx-auto w-full md:px-24 lg:px-8 bg-custom-main-blue">
+    <div class="relative flex grid items-center max-w-6xl grid-cols-2 mx-auto lg:grid-cols-3">
+        <ul class="flex items-center hidden space-x-8 lg:flex">
+            <li><a href="/" aria-label="Our product" title="Our product"
+                   class="font-medium tracking-wide text-gray-200 transition-colors duration-200">How it works</a></li>
+            <li><a href="/" aria-label="Our product" title="Our product"
+                   class="font-medium tracking-wide text-gray-200 transition-colors duration-200">How to use</a></li>
+            <li><a href="/" aria-label="Product pricing" title="Product pricing"
+                   class="font-medium tracking-wide text-gray-200 transition-colors duration-200">Integrations</a></li>
         </ul>
-        <div class="sub-hero--image">
-            <svg height="100%" viewBox="0 0 291 287" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="122.5" cy="186" rx="93.5" ry="96" stroke="#1F3C88" stroke-width="9"/>
-                <ellipse cx="192.5" cy="113" rx="93.5" ry="93" stroke="#FF8540" stroke-width="9"/>
-                <path
-                        d="M6.575 121.175C6.40833 121.175 6.25833 121.117 6.125 121C6.00833 120.867 5.95 120.717 5.95 120.55V115.975H1.5C1.31667 115.975 1.15833 115.917 1.025 115.8C0.908333 115.683 0.85 115.533 0.85 115.35V113.525C0.85 113.342 0.908333 113.192 1.025 113.075C1.15833 112.942 1.31667 112.875 1.5 112.875H5.95V108.45C5.95 108.267 6.00833 108.117 6.125 108C6.25833 107.883 6.40833 107.825 6.575 107.825H8.625C8.80833 107.825 8.95833 107.883 9.075 108C9.19167 108.117 9.25 108.267 9.25 108.45V112.875H13.675C13.8583 112.875 14.0083 112.942 14.125 113.075C14.2417 113.192 14.3 113.342 14.3 113.525V115.35C14.3 115.533 14.2417 115.683 14.125 115.8C14.0083 115.917 13.8583 115.975 13.675 115.975H9.25V120.55C9.25 120.717 9.19167 120.867 9.075 121C8.95833 121.117 8.80833 121.175 8.625 121.175H6.575ZM24.5734 122C24.4068 122 24.2568 121.942 24.1234 121.825C24.0068 121.692 23.9484 121.542 23.9484 121.375V109.475L20.5234 112.1C20.4068 112.2 20.2818 112.25 20.1484 112.25C19.9651 112.25 19.7984 112.15 19.6484 111.95L18.1734 110.025C18.0901 109.892 18.0484 109.767 18.0484 109.65C18.0484 109.417 18.1484 109.242 18.3484 109.125L24.0984 104.675C24.2818 104.558 24.4818 104.5 24.6984 104.5H27.8234C28.0068 104.5 28.1568 104.558 28.2734 104.675C28.3901 104.792 28.4484 104.942 28.4484 105.125V121.375C28.4484 121.542 28.3901 121.692 28.2734 121.825C28.1568 121.942 28.0068 122 27.8234 122H24.5734Z"
-                        fill="#1F3C88"/>
-                <path
-                        d="M262.575 23.175C262.408 23.175 262.258 23.1167 262.125 23C262.008 22.8667 261.95 22.7167 261.95 22.55V17.975H257.5C257.317 17.975 257.158 17.9167 257.025 17.8C256.908 17.6833 256.85 17.5333 256.85 17.35V15.525C256.85 15.3417 256.908 15.1917 257.025 15.075C257.158 14.9417 257.317 14.875 257.5 14.875H261.95V10.45C261.95 10.2667 262.008 10.1167 262.125 10C262.258 9.88333 262.408 9.825 262.575 9.825H264.625C264.808 9.825 264.958 9.88333 265.075 10C265.192 10.1167 265.25 10.2667 265.25 10.45V14.875H269.675C269.858 14.875 270.008 14.9417 270.125 15.075C270.242 15.1917 270.3 15.3417 270.3 15.525V17.35C270.3 17.5333 270.242 17.6833 270.125 17.8C270.008 17.9167 269.858 17.975 269.675 17.975H265.25V22.55C265.25 22.7167 265.192 22.8667 265.075 23C264.958 23.1167 264.808 23.175 264.625 23.175H262.575ZM280.573 24C280.407 24 280.257 23.9417 280.123 23.825C280.007 23.6917 279.948 23.5417 279.948 23.375V11.475L276.523 14.1C276.407 14.2 276.282 14.25 276.148 14.25C275.965 14.25 275.798 14.15 275.648 13.95L274.173 12.025C274.09 11.8917 274.048 11.7667 274.048 11.65C274.048 11.4167 274.148 11.2417 274.348 11.125L280.098 6.675C280.282 6.55833 280.482 6.5 280.698 6.5H283.823C284.007 6.5 284.157 6.55833 284.273 6.675C284.39 6.79167 284.448 6.94167 284.448 7.125V23.375C284.448 23.5417 284.39 23.6917 284.273 23.825C284.157 23.9417 284.007 24 283.823 24H280.573Z"
-                        fill="#FF8540"/>
-                <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="24" y="85" width="197"
-                      height="202">
-                    <ellipse cx="122.5" cy="186" rx="93.5" ry="96" stroke="#2B46A6" stroke-width="9"/>
-                </mask>
-                <g mask="url(#mask0)">
-                    <ellipse cx="211" cy="201" rx="38" ry="31" fill="#1F3C88"/>
-                </g>
+        <a href="/" aria-label="Company" title="Company" class="inline-flex items-center lg:mx-auto">
+            <svg viewBox="0 0 58 59" fill="none"
+                 xmlns="http://www.w3.org/2000/svg" class="w-8 text-gray-200">
+                <circle cx="21.5556" cy="37.4444" r="19.5556" stroke="#e5e7eb" stroke-width="3.55556"/>
+                <circle cx="35.7777" cy="22.037" r="19.5556" stroke="#e5e7eb" stroke-width="3.55556"/>
             </svg>
+            <span class="ml-2 text-xl font-bold tracking-wide text-gray-200 uppercase">Finway</span></a>
+        <ul class="flex items-center hidden ml-auto space-x-8 lg:flex">
+            <li><a href="/" aria-label="Sign in" title="Sign in"
+                   class="font-medium tracking-wide text-gray-200 transition-colors duration-200">Login</a></li>
+            <li><a href="/" aria-label="Sign up" title="Sign up"
+                   class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-200 transition duration-200 rounded shadow-md bg-custom-accent hover:bg-custom-accent focus:shadow-outline focus:outline-none">
+                Try for free
+            </a></li>
+        </ul>
+        <div class="ml-auto lg:hidden">
+            <button aria-label="Open Menu" title="Open Menu"
+                    class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50">
+                <svg viewBox="0 0 24 24" class="w-5 text-gray-600">
+                    <path fill="currentColor"
+                          d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path>
+                    <path fill="currentColor"
+                          d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"></path>
+                    <path fill="currentColor"
+                          d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"></path>
+                </svg>
+            </button>
         </div>
     </div>
-</section>
-<section id="features" class="section section--features">
-    <h1 class="features--title">
-        What you get.
-    </h1>
-    <div class="features--cards">
-        <FeatureCard title="AUTOMATED" subTitle="CONNECTION"
-                     content="Your webshop and accounting software will be fully connected. Updates occur in realtime."
-                     maxWidth="4rem" minWidth="4rem">
-            <svg width="100%" viewBox="0 0 74 75" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="46.5478" cy="26.6976" rx="25.3837" ry="24.9535" stroke="#1F3C88"
-                         stroke-width="3.44186"/>
-                <ellipse cx="27.6181" cy="46.4878" rx="25.3837" ry="25.814" stroke="#1F3C88"
-                         stroke-width="3.44186"/>
-            </svg>
-        </FeatureCard>
-        <FeatureCard title="trusted" subTitle="environment"
-                     content="You get to choose any webshop- and accounting software.
-                                     Can’t find what you’re looking for? We’ll build it."
-                     maxWidth="7rem" minWidth="7rem">
-            <svg width="100%" viewBox="0 0 119 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect opacity="0.2" y="70" width="21" height="21" fill="#1F3C88"/>
-                <rect opacity="0.2" x="0.860465" y="0.860465" width="19.2791" height="18.2791"
-                      stroke="#1F3C88" stroke-width="1.72093" stroke-dasharray="2.58 2.58"/>
-                <rect opacity="0.2" x="96.8605" y="37.8605" width="19.2791" height="19.2791"
-                      rx="9.63953" stroke="#1F3C88" stroke-width="1.72093"
-                      stroke-dasharray="2.58 2.58"/>
-                <rect y="37" width="21" height="21" rx="6.24531" fill="#1F3C88"/>
-                <rect opacity="0.2" y="103" width="21" height="21" rx="10.5" fill="#1F3C88"/>
-                <path opacity="0.2" d="M106.5 0L116.459 18H96.5407L106.5 0Z" fill="#1F3C88"/>
-                <path d="M106.5 64L117.437 72.2918L113.26 85.7082H99.7405L95.5628 72.2918L106.5 64Z"
-                      fill="#1F3C88"/>
-                <path opacity="0.2" d="M107 100L119 112L107 124L95 112L107 100Z" fill="#1F3C88"/>
-                <line x1="21" y1="47.9591" x2="59" y2="47.9591" stroke="#1F3C88"
-                      stroke-width="2.08177"/>
-                <line x1="57.9591" y1="79" x2="57.9591" y2="49" stroke="#1F3C88"
-                      stroke-width="2.08177"/>
-                <line x1="59" y1="77.9591" x2="104" y2="77.9591" stroke="#1F3C88"
-                      stroke-width="2.08177"/>
-            </svg>
-        </FeatureCard>
-        <FeatureCard title="tailored" subTitle="advice"
-                     content="Haven’t made a choice on your e-commerce and accountant software yet? We’ll help you choose the right one for your business."
-                     maxWidth="4rem" minWidth="4rem">
-            <svg width="100%" viewBox="0 0 59 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect opacity="0.2" x="58.3945" y="81.791" width="18.0698" height="18.0698"
-                      transform="rotate(-180 58.3945 81.791)" fill="#1F3C88"/>
-                <rect x="0.742188" y="0.907227" width="18.0698" height="18.0698" fill="#1F3C88"/>
-                <rect opacity="0.2" x="38.6055" y="81.791" width="18.0698" height="18.0698"
-                      transform="rotate(-180 38.6055 81.791)" fill="#1F3C88"/>
-                <rect x="20.5352" y="0.907227" width="18.0698" height="18.0698" fill="#1F3C88"/>
-                <rect opacity="0.2" x="18.8125" y="81.791" width="18.0698" height="18.0698"
-                      transform="rotate(-180 18.8125 81.791)" fill="#1F3C88"/>
-                <rect x="40.3242" y="0.907227" width="18.0698" height="18.0698" fill="#1F3C88"/>
-                <rect x="40.3242" y="20.6973" width="18.0698" height="18.0698" fill="#1F3C88"/>
-                <rect opacity="0.2" x="18.8125" y="62" width="18.0698" height="18.0698"
-                      transform="rotate(-180 18.8125 62)" fill="#1F3C88"/>
-                <rect opacity="0.2" x="38.6055" y="62" width="18.0698" height="18.0698"
-                      transform="rotate(-180 38.6055 62)" fill="#1F3C88"/>
-            </svg>
-
-        </FeatureCard>
-        <FeatureCard title="Automated" subTitle="set-up"
-                     content="Manage everything on our platform. No guides needed, one-click to connect
-                                     and never think about it again. "
-                     maxWidth="4rem" minWidth="4rem">
-            <svg width="100%" viewBox="0 0 88 81" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle opacity="0.2" cx="36.5106" cy="36.5809" r="36.1395" fill="#1F3C88"/>
-                <path
-                        d="M57.1372 48.4535L87.3559 61.8475L71.7791 65.241L66.3002 80.2121L57.1372 48.4535Z"
-                        fill="#1F3C88"/>
-            </svg>
-        </FeatureCard>
-        <FeatureCard title="realtime" subTitle="insights"
-                     content="Powerful dashboarding to see what’s happening."
-                     maxWidth="4rem" minWidth="4rem">
-            <svg width="100%" viewBox="0 0 39 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect y="9.09277" width="30.1163" height="30.1163" fill="#D5DAED"/>
-                <circle cx="30.1164" cy="9.09293" r="8.60465" fill="#1F3C88"/>
-            </svg>
-        </FeatureCard>
+</div> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+<div class="relative bg-custom-main-blue w-full">
+    <div class="absolute inset-x-0 bottom-0">
+        <svg viewBox="0 0 224 12" fill="#f9fafb" preserveAspectRatio="none" class="w-full -mb-1 text-white">
+            <path d="M0,0 C48.8902582,6.27314026 86.2235915,9.40971039 112,9.40971039 C137.776408,9.40971039 175.109742,6.27314026 224,0 L224,12.0441132 L0,12.0441132 L0,0 Z"></path>
+        </svg>
     </div>
-</section>
-<section id="cta-1" class="section section--cta">
-    <div class="cta--content">
-        <h1 class="cta--title">
-            Want to feel how this works?
-        </h1>
-        <p class="cta--subtitle">
-            Sign up for a free 30 day trial. No strings attached, but you probably wouldn’t want to go back
-            to manually adding the data afterwards.
-        </p>
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div class="relative max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl sm:text-center"><h2
+                class="mb-6 font-sans text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl sm:leading-none">
+            The best way to manage your e-commerce orders and invoices.
+        </h2>
+            <p class="mb-6 text-base text-gray-200 md:text-lg">
+                Software does the work for you, auto sync all orders and invoices from any e-commerce platform in one
+                click. Let software do the work.
+            </p>
+            <form class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16"><input placeholder="Email"
+                                                                                             required="required"
+                                                                                             type="text"
+                                                                                             class="flex-grow w-full h-12 px-4 mb-3 text-gray-200 transition duration-200 border-2 border-transparent rounded appearance-none md:mr-2 md:mb-0 bg-deep-purple-900 focus:border-teal-accent-700 focus:outline-none focus:shadow-outline">
+                <a href="/"
+                   class="flex flex-grow w-full items-center justify-center h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded shadow-md hover:text-gray-200 bg-custom-accent hover:yellow-300 focus:shadow-outline focus:outline-none">
+                    Try it free for 30 days!
+                </a></form>
+            <a href="/" aria-label="Scroll down"
+               class="flex items-center justify-center w-10 h-10 mx-auto text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                    <path d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z"></path>
+                </svg>
+            </a></div>
     </div>
-    <form class="cta--form" on:submit={(e) => e.preventDefault()}>
-        <input class="cta--input" placeholder="email"/>
-        <button type="submit" class="cta--button">SIGN UP NOW</button>
-    </form>
-</section>
-<section id="compatibility" class="section section--compatibility">
-    <h1 class="compatibility--title">
-        Compatibility
-    </h1>
-    <h2 class="compatibility--subtitle">
-        This is what we support right now. Ask our team to add your favourite software.
+</div> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!---->
+<div class="px-4 py-16 mx-auto bg-gray-50 w-full md:px-24 lg:px-8 lg:py-20">
+    <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"><h2
+            class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+        Auto sync all orders and invoices.
     </h2>
-    <div class="compatibility--cards">
-        <CompatibilityCard src="assets/images/woo.svg" alt="woocommerce" name="WooCommerce" fontColor="#fff"
-                           backgroundColor="#7F54B3"/>
-        <CompatibilityCard src="assets/images/asperion.png" alt="asperion" name="Asperion"
-                           backgroundColor="#A7C7E8"/>
-    </div>
-</section>
-<section id="process" class="section section--process">
-    <h1 class="process--title">
-        Our process.
-    </h1>
-    <h2 class="process--subtitle">
-        No need for complicated guides.
-    </h2>
-    <ol class="process--list">
-        <li class="list-item">
-            <div class="list-item--content">
-                <div class="list-item--counter list-item--counter__top-padding">
-                    <span class="counter--text">1</span>
-                </div>
-                <span
-                        class="list-item--text list-item--counter__top-padding">Select your software.</span>
-                <div class="list-item--image-container">
-                    <img src="assets/images/process-step-1.svg" class="list-item--image"
-                         alt={"process-step-1"}/>
+        <p class="text-base text-gray-900 md:text-lg">
+            Reduce errors, save time and money with one click e-commerce sync.
+        </p></div>
+    <div class="grid max-w-screen-lg gap-8 row-gap-10 mx-auto lg:grid-cols-2">
+        <div class="flex flex-col max-w-md sm:mx-auto sm:flex-row">
+            <div class="mr-4">
+                <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-yellow-100">
+                    <svg stroke="currentColor" viewBox="0 0 52 52" class="w-10 h-10 text-yellow-300">
+                        <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
+                                 points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+                    </svg>
                 </div>
             </div>
-
-        </li>
-        <li class="list-item">
-            <div class="list-item--content">
-                <div class="list-item--counter">
-                    <span class="counter--text">2</span>
-                </div>
-                <span class="list-item--text">Login to your accounts.</span>
-            </div>
-        </li>
-        <li class="list-item">
-            <div class="list-item--content">
-                <div class="list-item--counter">
-                    <span class="counter--text">3</span>
-                </div>
-                <span class="list-item--text">Click to connect.</span>
-                <div class="list-item--image-container">
-                    <img src="assets/images/process-step-3.svg" class="list-item--image"
-                         alt={"process-step-3"}/>
-                </div>
-            </div>
-        </li>
-    </ol>
-</section>
-<section id="cta-2" class="section section--cta">
-    <div class="cta--content">
-        <h1 class="cta--title">
-            Ask our team
-        </h1>
-        <p class="cta--subtitle">
-            Can’t find what you’re looking for or don’t believe it’s this simple?
-        </p>
-    </div>
-    <form class="cta--form" on:submit={(e) => e.preventDefault()}>
-        <button type="submit" class="cta--button">book a call</button>
-    </form>
-</section>
-<section id="cta-3" class="section section--pricing">
-    <h1 class="pricing--title">
-        Pricing Plans.
-    </h1>
-        <div class="pricing-card pricing-card__cheap">
-            <h1 class="pricing-card--title pricing-card--title__cheap">The Complete Package</h1>
-            <form class="pricing-card--form pricing-card--form__cheap" on:submit={(e) => e.preventDefault()}>
-                <button type="submit" class="pricing-card--button">BUY NOW</button>
-            </form>
+            <div><h6 class="mb-3 text-xl font-bold leading-5 text-gray-900">
+                Auto Sync Orders &amp; Invoices.
+            </h6>
+                <p class="mb-3 text-sm text-gray-900">
+                    Finway is a simple way to keep your e-commerce store and accounting platform in sync automatically.
+                </p> <a href="/" aria-label=""
+                        class="inline-flex items-center font-semibold text-yellow-300 transition-colors duration-200 hover:text-yellow-300">Learn
+                    more</a></div>
         </div>
-</section>
+        <div class="flex flex-col max-w-md sm:mx-auto sm:flex-row">
+            <div class="mr-4">
+                <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-yellow-100">
+                    <svg stroke="currentColor" viewBox="0 0 52 52" class="w-10 h-10 text-yellow-300">
+                        <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
+                                 points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+                    </svg>
+                </div>
+            </div>
+            <div><h6 class="mb-3 text-xl font-bold leading-5 text-gray-900">
+                Reduce Data Entry Errors &amp; Save Time.
+            </h6>
+                <p class="mb-3 text-sm text-gray-900">
+                    You'll be able to spend more time selling products rather than entering data into multiple platforms
+                    by hand..
+                </p> <a href="/" aria-label=""
+                        class="inline-flex items-center font-semibold text-yellow-300 transition-colors duration-200 hover:text-yellow-300">Learn
+                    more</a></div>
+        </div>
+    </div>
+</div> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!----> <!----> <!---->
+<div class="px-4 py-16 mx-auto w-full md:px-24 lg:px-8 lg:py-20 bg-gray-50">
+    <div class="p-8 rounded shadow-xl sm:p-16 max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row">
+            <div class="mb-6 lg:mb-0 lg:w-1/2 lg:pr-5"><h2
+                    class="font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+                Auto sync for e-commerce and accounting platforms.
+            </h2></div>
+            <div class="lg:w-1/2"><p class="mb-4 text-base text-gray-900">
+                We're a fully automated order and invoice tracking system, that allows you to automatically synchronize
+                all orders from any e-commerce platform or accounting software with your preferred ERP, CRM or
+                accounting package.
+            </p> <a href="/" aria-label=""
+                    class="inline-flex items-center font-semibold transition-colors duration-200 text-yellow-300 hover:text-yellow-300">Get
+                Started!</a></div>
+        </div>
+    </div>
+</div> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!----> <!----> <!----> <!----> <!----> <!---->
+<div class="px-4 py-16 mx-auto w-full bg-gray-50 md:px-24 lg:px-8 lg:py-20">
+    <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"><h2
+            class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+        One click accounting.
+    </h2>
+        <p class="text-base text-gray-900 md:text-lg">
+            Auto sync all orders and invoices from any e-commerce and accounting platform in one click. Let software do
+            the work.
+        </p></div>
+    <div class="mx-auto max-w-6xl grid gap-10 lg:grid-cols-3 sm:grid-cols-1">
+        <div>
+            <div class="flex items-start mt-2 justify-between mb-6"><p class="text-2xl font-bold text-gray-900">
+                Connect your accounts.
+            </p>
+                <svg stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     viewBox="0 0 24 24" class="w-6 text-yellow-300 transform rotate-90 sm:rotate-0">
+                    <line fill="none" stroke-miterlimit="10" x1="2" y1="12" x2="22" y2="12"></line>
+                    <polyline fill="none" stroke-miterlimit="10" points="15,5 22,12 15,19 "></polyline>
+                </svg>
+            </div>
+            <p class="text-gray-900">
+                Choose from a wide range of supported platforms, or connect via API to get up and running in minutes.
+            </p></div>
+        <div>
+            <div class="flex  items-start mt-2 justify-between mb-6"><p class="text-gray-900 text-2xl font-bold">
+                Set it up once, then forget about it.
+            </p>
+                <svg stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     viewBox="0 0 24 24" class="w-6 text-yellow-300 transform rotate-90 sm:rotate-0">
+                    <line fill="none" stroke-miterlimit="10" x1="2" y1="12" x2="22" y2="12"></line>
+                    <polyline fill="none" stroke-miterlimit="10" points="15,5 22,12 15,19 "></polyline>
+                </svg>
+            </div>
+            <p class="text-gray-900">
+                Finway automatically syncs every order and invoice across your platforms so you can focus on growing
+                your business instead of chasing paperwork around the office or home desktops.
+            </p></div>
+        <div>
+            <div class="flex  items-start mt-2 justify-between mb-6"><p class="text-gray-900 text-2xl font-bold">
+                Profit!
+            </p>
+                <svg stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     viewBox="0 0 24 24" class="w-6 text-yellow-300 transform rotate-90 sm:rotate-0">
+                    <line fill="none" stroke-miterlimit="10" x1="2" y1="12" x2="22" y2="12"></line>
+                    <polyline fill="none" stroke-miterlimit="10" points="15,5 22,12 15,19 "></polyline>
+                </svg>
+            </div>
+            <p class="text-gray-900">
+                You'll spend less time doing paperwork - more time growing sales, creating new products, innovating
+                customer service or whatever else gets you excited about being an entrepreneur!
+            </p></div>
+    </div>
+</div> <!----> <!----> <!----> <!----> <!----><!----> <!----> <!----> <!---->
+<div class="px-4 py-16 mx-auto md:px-24 lg:px-8 lg:py-20 w-full bg-gray-50">
+    <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+        <div>
+            <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-yellow-300">
+                Our Pricing
+            </p></div>
+        <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+            Free yourself from time-consuming tasks.
+        </h2>
+        <p class="text-base text-gray-900 md:text-lg">
+            Finway automates tedious accounting and e-commerce workflows so you can focus on the most important thing -
+            your business. Try it for free with our 14-day trial offer."
+        </p></div>
+    <div class="grid max-w-md gap-10 row-gap-5 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto">
+        <div class="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
+            <div class="text-center">
+                <div class="text-lg font-semibold">
+                    Start
+                </div>
+                <div class="flex items-center justify-center mt-2">
+                    <div class="mr-1 text-5xl font-bold">
+                        Free
+                    </div>
+                </div>
+                <div class="mt-2 space-y-3">
+                    <div class="text-gray-700">
+                        10 deploys per day
+                    </div>
+                    <div class="text-gray-700">
+                        10 GB of storage
+                    </div>
+                    <div class="text-gray-700">
+                        20 domains
+                    </div>
+                </div>
+            </div>
+            <div><a href="/"
+                    class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none">
+                Start for free
+            </a>
+                <p class="max-w-xs mt-6 text-xs text-gray-900 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
+                    Sed ut unde omnis iste natus accusantium doloremque.
+                </p></div>
+        </div>
+        <div class="relative flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow border-deep-purple-accent-400">
+            <div class="absolute inset-x-0 top-0 flex justify-center -mt-3">
+                <div class="inline-block px-3 py-1 text-xs font-medium tracking-wider text-white uppercase rounded bg-yellow-300">
+                    Most Popular
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="text-lg font-semibold">
+                    Pro
+                </div>
+                <div class="flex items-center justify-center mt-2">
+                    <div class="mr-1 text-5xl font-bold">
+                        $38
+                    </div>
+                    <div class="text-gray-700">
+                        / mo
+                    </div>
+                </div>
+                <div class="mt-2 space-y-3">
+                    <div class="text-gray-700">
+                        200 deploys per day
+                    </div>
+                    <div class="text-gray-700">
+                        80 GB of storage
+                    </div>
+                    <div class="text-gray-700">
+                        Global CDN
+                    </div>
+                </div>
+            </div>
+            <div><a href="/"
+                    class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-yellow-300 hover:bg-yellow-300 focus:shadow-outline focus:outline-none">
+                Buy Pro
+            </a>
+                <p class="max-w-xs mt-6 text-xs text-gray-900 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
+                    Sed ut unde omnis iste natus accusantium doloremque.
+                </p></div>
+        </div>
+        <div class="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
+            <div class="text-center">
+                <div class="text-lg font-semibold">
+                    Business
+                </div>
+                <div class="flex items-center justify-center mt-2">
+                    <div class="mr-1 text-5xl font-bold">
+                        $78
+                    </div>
+                    <div class="text-gray-700">
+                        / mo
+                    </div>
+                </div>
+                <div class="mt-2 space-y-3">
+                    <div class="text-gray-700">
+                        500 GB of storage
+                    </div>
+                    <div class="text-gray-700">
+                        Unlimited domains
+                    </div>
+                    <div class="text-gray-700">
+                        24/7 Support
+                    </div>
+                </div>
+            </div>
+            <div><a href="/"
+                    class="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none">
+                Buy Business
+            </a>
+                <p class="max-w-xs mt-6 text-xs text-gray-900 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
+                    Sed ut unde omnis iste natus accusantium doloremque.
+                </p></div>
+        </div>
+    </div>
+</div> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!----> <!----> <!----> <!----> <!----> <!----> <!---->
+<!----> <!----> <!---->
+<div class="bg-gray-150 w-full">
+    <div class="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div class="grid row-gap-10 mb-8 lg:grid-cols-6">
+            <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
+                <div><p class="font-medium tracking-wide text-gray-900">
+                    Category
+                </p>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">News</a>
+                        </li>
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">World</a>
+                        </li>
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Games</a>
+                        </li>
+                        <li><a href="/"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">References</a></li>
+                    </ul>
+                </div>
+                <div><p class="font-medium tracking-wide text-gray-900">
+                    Apples
+                </p>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Web</a></li>
+                        <li><a href="/"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">eCommerce</a></li>
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Business</a>
+                        </li>
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Entertainment</a>
+                        </li>
+                        <li><a href="/"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div><p class="font-medium tracking-wide text-gray-900">
+                    Cherry
+                </p>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Media</a>
+                        </li>
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Brochure</a>
+                        </li>
+                        <li><a href="/"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Nonprofit</a></li>
+                        <li><a href="/"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Educational</a></li>
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Projects</a>
+                        </li>
+                    </ul>
+                </div>
+                <div><p class="font-medium tracking-wide text-gray-900">
+                    Business
+                </p>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="/"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Infopreneur</a></li>
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Personal</a>
+                        </li>
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Wiki</a>
+                        </li>
+                        <li><a href="/" class="text-gray-900 transition-colors duration-300 hover:gray-900">Forum</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="md:max-w-md lg:col-span-2"><span class="text-base font-medium tracking-wide text-gray-900">Subscribe for updates</span>
+                <form class="flex flex-col mt-4 md:flex-row"><input placeholder="Email" required="required" type="text"
+                                                                    class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-900 border-opacity-10 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline">
+                    <button type="submit"
+                            class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-yellow-300 hover:bg-yellow-300 focus:shadow-outline focus:outline-none">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="mt-4 text-sm text-gray-900">
+                    Auto sync all orders and invoices from any e-commerce and accounting platform in one click. Let
+                    software do the work.
+                </p></div>
+        </div>
+        <div class="flex flex-col justify-between pt-5 pb-10 border-t border-gray-900 border-opacity-10 sm:flex-row"><p
+                class="text-sm text-gray-900">
+            © Copyright 2020 Finway. All rights reserved.
+        </p>
+            <div class="flex items-center mt-4 space-x-4 sm:mt-0"><a href="/"
+                                                                     class="text-gray-900 transition-colors duration-300 hover:text-yellow-300">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>
+                </svg>
+            </a> <a href="/" class="text-gray-900 transition-colors duration-300 hover:text-yellow-300">
+                <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
+                    <circle cx="15" cy="15" r="4"></circle>
+                    <path d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z"></path>
+                </svg>
+            </a> <a href="/" class="text-gray-900 transition-colors duration-300 hover:text-yellow-300">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                    <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>
+                </svg>
+            </a></div>
+        </div>
+    </div>
+</div>
