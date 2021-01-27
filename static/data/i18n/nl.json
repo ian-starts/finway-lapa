@@ -9,19 +9,19 @@
   },
   "hero": {
     "title": "De beste manier om je e-commerce orders en facturen te beheren.",
-    "subTitle": "Laat software het zware werk doen. In 1 klik zijn al je orders en facturen gesynchroniseerd. Laat software voor je werken.",
+    "subTitle": "Laat software het zware werk doen. In 1 klik zijn al je orders en facturen gesynchroniseerd.",
     "try": "Probeer 30 dagen gratis!"
   },
   "features": {
     "title": "Koppel automatisch je orders en facturen.",
-    "subTitle": "Voorkom fouten, bespaar tijd en geld met onze plug and play koppelingen.",
+    "subTitle": "Voorkom fouten. Bespaar tijd en geld met onze plug and play koppelingen.",
     "feat": [
       {
-        "title": "Koppel Orders & Facturen.",
+        "title": "Koppel orders & facturen.",
         "subTitle": "Finway biedt een simpele manier om je e-commerce shop en boekhouding volledig aan elkaar te koppelen."
       },
       {
-        "title": "Voorkom Fouten & Bespaar Tijd.",
+        "title": "Automatisch foutloos kopieëren.",
         "subTitle": "Besteed je tijd aan producten verkopen in plaats van handmatig data invoeren op meerdere platforms."
       }
     ],
@@ -42,27 +42,27 @@
     "steps": [
       {
         "title": "Verbind je accounts.",
-        "subTitle": "Kies uit een breed scala aan ondersteunde platforms, of maak verbinding via onze API om binnen enkele minuten aan de slag te kunnen."
+        "subTitle": "Kies uit een breed scala aan ondersteunde platforms, of maak verbinding via onze API om direct zelf aan de slag te kunnen."
       },
       {
         "title": "Stel het in en vergeet het.",
-        "subTitle": "Finway synchroniseert automatisch elke order en factuur op al uw platformen, zodat u zich kunt concentreren op de belangrijke dingen: de groei van uw bedrijf. Stop met eindeloos digitaal papierwerk."
+        "subTitle": "Finway synchroniseert automatisch elke order en factuur op al jouw platformen, zodat je je kan concentreren op de belangrijke dingen: de groei van jouw bedrijf. Stop met eindeloos digitaal papierwerk."
       },
       {
         "title": "Groei!",
-        "subTitle": "Besteed minder tijd aan papierwerk - en meer tijd aan het laten groeien van de verkoop, het creëren van nieuwe producten, het innoveren van de klantenservice of whatever jouw business nodig heeft!"
+        "subTitle": "Besteed minder tijd aan papierwerk - en meer tijd aan het laten groeien van de verkoop, het creëren van nieuwe producten, het innoveren van de klantenservice of wat jouw bedrijf nodig heeft!"
       }
     ]
   },
   "pricing": {
     "header": "Onze prijzen",
-    "title": "Stop met tijdrovend werk.",
-    "subTitle": "Finway automatiseert vervelende boekhoudkundige en e-commerce-workflows, zodat u zich kunt concentreren op het belangrijkste: uw bedrijf. Probeer het 30 dagen gratis.",
-    "accentText": "Most Popular",
+    "title": "De makkelijkste investering die je dit jaar doet.",
+    "subTitle": "Finway automatiseert vervelende boekhoudkundige en e-commerce-workflows, zodat u zich kunt concentreren op het belangrijkste: jouw bedrijf. Probeer het 30 dagen gratis.",
+    "accentText": "Meest Gekocht",
     "cards": [
       {
         "title": "Start",
-        "cost":"$10",
+        "cost":"€10",
         "features": [
           "Automatically sync webshop order with your accounting software as invoices",
           "Full VAT support",
@@ -76,7 +76,7 @@
       },
       {
         "title": "Pro",
-        "cost":"$40",
+        "cost":"€40",
         "features": [
           "Automatically sync webshop order with your accounting software as invoices",
           "Full VAT support",
@@ -92,7 +92,7 @@
       },
       {
         "title": "Business",
-        "cost":"$90",
+        "cost":"€90",
         "features": [
           "Automatically sync webshop order with your accounting software as invoices",
           "Full VAT support",

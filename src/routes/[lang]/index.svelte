@@ -260,7 +260,7 @@
                             {content.pricing.cards[0].cost}
                         </div>
                         <div class="text-gray-700">
-                            / mo
+                            / m
                         </div>
                     </div>
                     <ul class="mt-2 space-y-4 text-left">
