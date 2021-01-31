@@ -11,12 +11,15 @@
     const handleSubmit = (e) => {
         e.preventDefault()
         loading = true;
+        let formData = new FormData(e.target);
+        let object = {};
+        formData.forEach((value, key) => object[key] = value);
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": e.target.getAttribute("name"),
-                ...name
+                ...object
             })
         }).then(() => {
             console.log('test');
