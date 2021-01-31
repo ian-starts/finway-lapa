@@ -23,8 +23,20 @@
         } catch (e) {
             this.redirect(302, 'en')
         }
-
     }
+
+    const handleSubmit = (id) => (e) => {
+        e.preventDefault()
+        let myForm = document.getElementById(id);
+        let formData = new FormData(myForm)
+        fetch('/', {
+            method: 'POST',
+            headers: {"Content-Type": "application/x-www-form-urlencoded"},
+            body: new URLSearchParams(formData).toString()
+        }).then(() => console.log('Form successfully submitted')).catch((error) =>
+            alert(error))
+    }
+
 
 </script>
 <Head>
@@ -39,7 +51,7 @@
             <li><a href="#pricing" aria-label="Our product" title="Our product"
                    class="font-medium tracking-wide text-gray-200 transition-colors duration-200">{content.nav.pricing}</a>
             </li>
-            <li><a href="/" aria-label="Product pricing" title="Product pricing"
+            <li><a href="#compatibility" aria-label="Product pricing" title="Product pricing"
                    class="font-medium tracking-wide text-gray-200 transition-colors duration-200">{content.nav.integrations}</a>
             </li>
         </ul>
@@ -51,13 +63,13 @@
             </svg>
             <span class="ml-2 text-xl font-bold tracking-wide text-gray-200 uppercase">Finway</span></a>
         <ul class="flex items-center hidden ml-auto space-x-8 lg:flex">
-            <li><a href="/" aria-label="Sign in" title="Sign in"
+            <li><a href="https://app.finway.tech" aria-label="Sign in" title="Sign in"
                    class="font-medium tracking-wide text-gray-200 transition-colors duration-200">{content.nav.login}</a>
             </li>
-            <li><a href="/" aria-label="Sign up" title="Sign up"
-                   class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-200 transition duration-200 rounded shadow-md bg-custom-accent hover:bg-custom-accent focus:shadow-outline focus:outline-none">
-                {content.nav.try}
-            </a></li>
+            <!--            <li><a href="/" aria-label="Sign up" title="Sign up"-->
+            <!--                   class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-200 transition duration-200 rounded shadow-md bg-custom-accent hover:bg-custom-accent focus:shadow-outline focus:outline-none">-->
+            <!--                {content.nav.try}-->
+            <!--            </a></li>-->
         </ul>
         <div class="ml-auto lg:hidden">
             <button aria-label="Open Menu" title="Open Menu"
@@ -88,10 +100,13 @@
             <p class="mb-6 text-base text-gray-200 md:text-lg">
                 {content.hero.subTitle}
             </p>
-            <form class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16"><input placeholder="Email"
-                                                                                             required="required"
-                                                                                             type="text"
-                                                                                             class="flex-grow w-full h-12 px-4 mb-3 text-gray-200 transition duration-200 border-2 border-transparent rounded appearance-none md:mr-2 md:mb-0 bg-deep-purple-900 focus:border-teal-accent-700 focus:outline-none focus:shadow-outline">
+            <form id="beta-signup" on:submit|preventDefault={handleSubmit("beta-signup")} name="beta-signup"
+                  class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16" netlify><input
+                    placeholder="Email"
+                    required="required"
+                    type="text"
+                    name="email"
+                    class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 border-2 border-transparent rounded appearance-none md:mr-2 md:mb-0 bg-deep-purple-900 focus:border-teal-accent-700 focus:outline-none focus:shadow-outline">
                 <a href="/"
                    class="flex flex-grow w-full items-center justify-center h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded shadow-md hover:text-gray-200 bg-custom-accent hover:yellow-300 focus:shadow-outline focus:outline-none">
                     {content.hero.try}
@@ -426,11 +441,14 @@
                     Social
                 </p>
                     <ul class="mt-2 space-y-2">
-                        <li><a href="https://twitter.com/ian-starts" target="_blank" class="text-gray-900 transition-colors duration-300 hover:gray-900">Twitter</a>
+                        <li><a href="https://twitter.com/ian-starts" target="_blank"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Twitter</a>
                         </li>
-                        <li><a href="https://github.com/ian-starts" target="_blank" class="text-gray-900 transition-colors duration-300 hover:gray-900">Github</a>
+                        <li><a href="https://github.com/ian-starts" target="_blank"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Github</a>
                         </li>
-                        <li><a href="https://linkedin.com/company/finwaytech" target="_blank" class="text-gray-900 transition-colors duration-300 hover:gray-900">LinkedIn</a>
+                        <li><a href="https://linkedin.com/company/finwaytech" target="_blank"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">LinkedIn</a>
                         </li>
                     </ul>
                 </div>
@@ -438,9 +456,11 @@
                     Partners
                 </p>
                     <ul class="mt-2 space-y-2">
-                        <li><a href="https://asperion.nl" target="_blank" class="text-gray-900 transition-colors duration-300 hover:gray-900">Asperion</a>
+                        <li><a href="https://asperion.nl" target="_blank"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Asperion</a>
                         </li>
-                        <li><a href="https://www.snelstart.nl" target="_blank" class="text-gray-900 transition-colors duration-300 hover:gray-900">SnelStart</a>
+                        <li><a href="https://www.snelstart.nl" target="_blank"
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">SnelStart</a>
                         </li>
                     </ul>
                 </div>
@@ -449,14 +469,16 @@
                 </p>
                     <ul class="mt-2 space-y-2">
                         <li><a href="/"
-                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Automate your work</a></li>
+                               class="text-gray-900 transition-colors duration-300 hover:gray-900">Automate your
+                            work</a></li>
                     </ul>
                 </div>
             </div>
             <div class="md:max-w-md lg:col-span-2">
                 <span class="text-base font-medium tracking-wide text-gray-900">{content.footer.title}</span>
-                <form class="flex flex-col mt-4 md:flex-row">
-                    <input placeholder="Email" required="required" type="text"
+                <form id="newsletter-signup" on:submit|preventDefault={handleSubmit("newsletter-signup")} netlify
+                      name="newsletter-signup" class="flex flex-col mt-4 md:flex-row">
+                    <input placeholder="Email" required="required" type="text" name="email"
                            class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-900 border-opacity-10 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline">
                     <button type="submit"
                             class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-custom-accent hover:bg-custom-accent focus:shadow-outline focus:outline-none">
