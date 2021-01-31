@@ -108,7 +108,7 @@
                 {content.hero.subTitle}
             </p>
             <form id="beta-signup" on:submit|preventDefault={handleSubmit} name="beta-signup"
-                  class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16" netlify><input
+                  class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16" data-netlify=true><input
                     placeholder="Email"
                     required="required"
                     type="text"
@@ -488,7 +488,7 @@
             </div>
             <div class="md:max-w-md lg:col-span-2">
                 <span class="text-base font-medium tracking-wide text-gray-900">{content.footer.title}</span>
-                <form id="newsletter-signup" on:submit|preventDefault={handleSubmit} netlify
+                <form id="newsletter-signup" on:submit|preventDefault={handleSubmit} data-netlify=true
                       name="newsletter-signup" class="flex flex-col mt-4 md:flex-row">
                     <input placeholder="Email" required="required" type="text" name="email"
                            class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-900 border-opacity-10 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline">
