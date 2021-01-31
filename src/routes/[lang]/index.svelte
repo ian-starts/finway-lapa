@@ -2,10 +2,29 @@
     export let content;
     import Head from "../../components/Head.svelte";
     import CompatibilityCard from "../../components/CompatibilityCard.svelte";
+    let loading = false;
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        loading = true;
+        let formData = new FormData(e.target)
+        fetch('/', {
+            method: 'POST',
+            headers: {"Content-Type": "application/x-www-form-urlencoded"},
+            body: new URLSearchParams(formData).toString()
+        }).then(() => {
+            console.log('test');
+            Snackbar.show({pos: 'bottom-right', text: 'Thanks for submitting!', actionTextColor: '#FF8540'});
+            loading = false;
+        }).catch((error) => {
+            loading = false;
+            console.log(error)
+        });
+    }
 </script>
 
 <!-- src/routes/blog/[slug].svelte -->
 <script context="module">
+
     // the (optional) preload function takes a
     // `{ path, params, query }` object and turns it into
     // the data we need to render the page
@@ -23,18 +42,6 @@
         } catch (e) {
             this.redirect(302, 'en')
         }
-    }
-
-    const handleSubmit = (id) => (e) => {
-        e.preventDefault()
-        let myForm = document.getElementById(id);
-        let formData = new FormData(myForm)
-        fetch('/', {
-            method: 'POST',
-            headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            body: new URLSearchParams(formData).toString()
-        }).then(() => console.log('Form successfully submitted')).catch((error) =>
-            alert(error))
     }
 
 
@@ -100,17 +107,22 @@
             <p class="mb-6 text-base text-gray-200 md:text-lg">
                 {content.hero.subTitle}
             </p>
-            <form id="beta-signup" on:submit|preventDefault={handleSubmit("beta-signup")} name="beta-signup"
+            <form id="beta-signup" on:submit|preventDefault={handleSubmit} name="beta-signup"
                   class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16" netlify><input
                     placeholder="Email"
                     required="required"
                     type="text"
                     name="email"
                     class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 border-2 border-transparent rounded appearance-none md:mr-2 md:mb-0 bg-deep-purple-900 focus:border-teal-accent-700 focus:outline-none focus:shadow-outline">
-                <a href="/"
-                   class="flex flex-grow w-full items-center justify-center h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded shadow-md hover:text-gray-200 bg-custom-accent hover:yellow-300 focus:shadow-outline focus:outline-none">
-                    {content.hero.try}
-                </a></form>
+                <button type="submit"
+                        class="flex flex-grow w-full items-center justify-center h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded shadow-md hover:text-gray-200 bg-custom-accent hover:yellow-300 focus:shadow-outline focus:outline-none">
+                    {#if loading}
+                        <div class="loader"/>
+                    {:else}
+                        {content.hero.try}
+                    {/if}
+                </button>
+            </form>
             <a href="/" aria-label="Scroll down"
                class="flex items-center justify-center w-10 h-10 mx-auto text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
@@ -476,13 +488,17 @@
             </div>
             <div class="md:max-w-md lg:col-span-2">
                 <span class="text-base font-medium tracking-wide text-gray-900">{content.footer.title}</span>
-                <form id="newsletter-signup" on:submit|preventDefault={handleSubmit("newsletter-signup")} netlify
+                <form id="newsletter-signup" on:submit|preventDefault={handleSubmit} netlify
                       name="newsletter-signup" class="flex flex-col mt-4 md:flex-row">
                     <input placeholder="Email" required="required" type="text" name="email"
                            class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-900 border-opacity-10 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline">
                     <button type="submit"
                             class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-custom-accent hover:bg-custom-accent focus:shadow-outline focus:outline-none">
-                        {content.footer.cta}
+                        {#if loading}
+                            <div class="loader"/>
+                        {:else}
+                            {content.footer.cta}
+                        {/if}
                     </button>
                 </form>
                 <p class="mt-4 text-sm text-gray-900">
