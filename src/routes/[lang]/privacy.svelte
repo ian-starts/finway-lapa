@@ -228,11 +228,12 @@
                     <input placeholder="Email" required="required" type="text" name="email"
                            class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-900 border-opacity-10 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline">
                     <button type="submit">
-                        sadasd
+                        Subscribe
                     </button>
                 </form>
                 <p class="mt-4 text-sm text-gray-900">
-                    asdasd
+                    Auto sync all orders and invoices from any e-commerce and
+                    accounting platform in one click. Let software do the work.
                 </p>
             </div>
         </div>
