@@ -4,7 +4,7 @@
 </script>
 
 <Head>
-    <title>{content}</title>
+    <title>Finway - Privacy Policy</title>
 </Head>
 <div class="px-4 py-5 mx-auto w-full md:px-24 lg:px-8 bg-custom-main-blue">
     <div class="relative flex grid items-center max-w-6xl grid-cols-2 mx-auto lg:grid-cols-3">
