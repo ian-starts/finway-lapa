@@ -5,7 +5,7 @@
     export async function preload() {
         // the `slug` parameter is available because this file
         // is called [slug].svelte
-        this.redirect(302, 'nl')
+        this.redirect(302, 'en')
     }
 
 </script>
