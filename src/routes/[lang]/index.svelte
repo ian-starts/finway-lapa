@@ -2,12 +2,15 @@
     export let content;
     import Head from "../../components/Head.svelte";
     import CompatibilityCard from "../../components/CompatibilityCard.svelte";
+
     let loading = false;
+
     function encode(data) {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
             .join("&")
     }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         loading = true;
@@ -16,7 +19,7 @@
         formData.forEach((value, key) => object[key] = value);
         fetch("/", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            headers: {"Content-Type": "application/x-www-form-urlencoded"},
             body: encode({
                 "form-name": e.target.getAttribute("name"),
                 ...object
@@ -119,13 +122,13 @@
             </p>
             <form id="beta-signup" on:submit|preventDefault={handleSubmit} name="beta-signup"
                   class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16" data-netlify=true method="post">
-                <input type="hidden" name="form-name" value="beta-signup"  />
+                <input type="hidden" name="form-name" value="beta-signup"/>
                 <input
-                    placeholder="Email"
-                    required="required"
-                    type="text"
-                    name="email"
-                    class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 border-2 border-transparent rounded appearance-none md:mr-2 md:mb-0 bg-deep-purple-900 focus:border-teal-accent-700 focus:outline-none focus:shadow-outline">
+                        placeholder="Email"
+                        required="required"
+                        type="text"
+                        name="email"
+                        class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 border-2 border-transparent rounded appearance-none md:mr-2 md:mb-0 bg-deep-purple-900 focus:border-teal-accent-700 focus:outline-none focus:shadow-outline">
                 <button type="submit"
                         class="flex flex-grow w-full items-center justify-center h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded shadow-md hover:text-gray-200 bg-custom-accent hover:yellow-300 focus:shadow-outline focus:outline-none">
                     {#if loading}
@@ -212,13 +215,15 @@
             {content.compatibility.title}
         </h2>
             <p class="text-base text-gray-900 md:text-lg">
-                {content.compatibility.subTitle}
+                {content.compatibility.subTitle} <a
+                    class="inline-flex items-center font-semibold transition-colors duration-200 text-custom-accent-300 hover:text-custom-accent-300" href="mailto:support@finway.tech?
+&subject=Could%20you%20add%20this%20supplier">{content.compatibility.addSupplier}</a>
             </p></div>
         <div class="flex flex-row flex-wrap justify-around lg:max-w-lg xl:max-w-lg sm:mx-auto">
             <CompatibilityCard src="assets/images/woo.svg" alt="woocommerce" name="WooCommerce" fontColor="#fff"
                                backgroundColor="#7F54B3"/>
-            <CompatibilityCard src="assets/images/asperion.png" alt="asperion" name="Asperion"
-                               backgroundColor="#A7C7E8"/>
+            <CompatibilityCard src="assets/images/shopify.svg" alt="shopify" name="Shopify" fontColor="#5b5b5b"
+                               backgroundColor="#f0cd73"/>
         </div>
     </div>
 </section>
@@ -502,7 +507,7 @@
                 <span class="text-base font-medium tracking-wide text-gray-900">{content.footer.title}</span>
                 <form id="newsletter-signup" on:submit|preventDefault={handleSubmit} data-netlify=true
                       name="newsletter-signup" method="post" class="flex flex-col mt-4 md:flex-row">
-                    <input type="hidden" name="form-name" value="newsletter-signup" />
+                    <input type="hidden" name="form-name" value="newsletter-signup"/>
                     <input placeholder="Email" required="required" type="text" name="email"
                            class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-900 border-opacity-10 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline">
                     <button type="submit"

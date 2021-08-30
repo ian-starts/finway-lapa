@@ -1,5 +1,5 @@
 {
-  "title": "Finway - Sync any e-commerce and accounting software",
+  "title": "Finway Dropshipping",
   "nav": {
     "workings": "How it works",
     "pricing": "Pricing",
@@ -8,37 +8,38 @@
     "try": "Try for free"
   },
   "hero": {
-    "title": "The best way to manage your e-commerce orders and invoices.",
-    "subTitle": "Software does the work for you, auto sync all orders and invoices from any e-commerce platform in one click. Let software do the work.",
+    "title": "The best way to manage your dropshipping business.",
+    "subTitle": "Focus on what matters to you. Finway automates Product Import and Order Placement from any supplier.",
     "try": "Sign up for Beta!"
   },
   "features": {
-    "title": "Auto sync all orders and invoices.",
-    "subTitle": "Reduce errors, save time and money with one click e-commerce sync.",
+    "title": "Focus on marketing.",
+    "subTitle": "Reduce errors, save time and money with Finway.",
     "feat": [
       {
-        "title": "Auto Sync Orders & Invoices.",
-        "subTitle": "Finway is a simple way to keep your e-commerce store and accounting platform in sync automatically."
+        "title": "Import products & inventory from any supplier.",
+        "subTitle": "Does your supplier have thousands of products with changing inventory? No problem. Finway refreshes the full product and inventory feed daily."
       },
       {
-        "title": "Reduce Data Entry Errors & Save Time.",
-        "subTitle": "You'll be able to spend more time selling products rather than entering data into multiple platforms by hand."
+        "title": "Automatic order placement & tracking data",
+        "subTitle": "Finway places all orders from your store at your supplier. When your suppliers ships the product, we make sure your store (and customer) is in the loop with full track and trace and backorder support."
       }
     ],
     "learn": "Learn more"
   },
   "centerCard": {
-    "title": "Auto sync for e-commerce and accounting platforms.",
-    "subTitle": "We're a fully automated order and invoice tracking system, that allows you to automatically synchronize all orders from any e-commerce platform or accounting software with your preferred ERP or accounting package.",
+    "title": "Automate your dropshipping business.",
+    "subTitle": "Finway imports the product and stock feeds from any supplier, and places all your orders directly at your supplier. Depending on supplier availability, we support fully fledged API connections, or automated emails (yes, our software can read emails) for those that don't.",
     "start": "Get Started!"
   },
   "compatibility": {
     "title": "Compatibility",
-    "subTitle": "This is what we support right now. Out of the box. Using a different software suite? Let us know! We'll hook it up."
+    "subTitle": "This is what we support right now. Out of the box. Need a different supplier or store connection?",
+    "addSupplier": "Let us know!"
   },
   "process": {
-    "title": "One click accounting.",
-    "subTitle": "Auto sync all orders and invoices from any e-commerce and accounting platform in one click. Let software do the work.",
+    "title": "One click dropshipping.",
+    "subTitle": "",
     "steps": [
       {
         "title": "Connect your accounts.",
@@ -62,7 +63,7 @@
     "cards": [
       {
         "title": "Start",
-        "cost":"$10",
+        "cost": "$10",
         "features": [
           "Automatically sync webshop order with your accounting software as invoices",
           "Full VAT support",
@@ -76,7 +77,7 @@
       },
       {
         "title": "Pro",
-        "cost":"$40",
+        "cost": "$40",
         "features": [
           "Automatically sync webshop order with your accounting software as invoices",
           "Full VAT support",
@@ -92,7 +93,7 @@
       },
       {
         "title": "Business",
-        "cost":"$90",
+        "cost": "$90",
         "features": [
           "Automatically sync webshop order with your accounting software as invoices",
           "Full VAT support",
